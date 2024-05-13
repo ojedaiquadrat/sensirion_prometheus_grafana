@@ -26,6 +26,12 @@ current_humidity = Gauge(
     ["room"],
 )
 
+sensor_status = Gauge(
+    "sensor_status",
+    "the current sensor status, this is a gauge as the value can be 1 for activated or 0 deactivated",
+    ["room"],
+)
+
 
 @app.route("/metrics")
 def metrics():
@@ -33,6 +39,7 @@ def metrics():
     current_co2.labels("study").set(metrics["co2"])
     current_temperature.labels("study").set(metrics["tmp"])
     current_humidity.labels("study").set(metrics["hum"])
+    sensor_status.labels("study").set(metrics["stat"])
     return Response(generate_latest(), mimetype=content_type)
 
 

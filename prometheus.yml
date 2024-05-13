@@ -12,4 +12,4 @@ scrape_configs:
       - targets: ['10.2.2.77:5004']
         labels:
           instance: 'my-pi'
-          room2: 'study'
+          room2: 'study2'
