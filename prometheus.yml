@@ -1,13 +1,13 @@
 scrape_configs:
   - job_name: 'sensirion-exporter'
-    scrape_interval: 15s
+    scrape_interval: 16s
     static_configs:
       - targets: ['10.2.2.77:5002']
         labels:
           instance: 'my-pi'
           room: 'study'
   - job_name: 'sensirion-exporter-2'
-    scrape_interval: 15s
+    scrape_interval: 16s
     static_configs:
       - targets: ['10.2.2.77:5004']
         labels:
