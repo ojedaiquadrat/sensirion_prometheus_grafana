@@ -30,6 +30,3 @@ def get_sensor_reading():
         fetched_data = msg.value
         print("S1: ", fetched_data)
         return fetched_data
-
-
-# get_sensor_reading()
