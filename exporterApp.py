@@ -34,6 +34,13 @@ sensor_status = Gauge(
 
 # adding result from data validation
 
+
+co2_validation_s1 = Gauge(
+    "co2_validation_s1",
+    "the current temperature validation with ML, this is a gauge as the value can get 1 or -1",
+    ["room"],
+)
+
 temperature_validation_s1 = Gauge(
     "temperature_validation_s1",
     "the current temperature validation with ML, this is a gauge as the value can get 1 or -1",
@@ -55,6 +62,7 @@ def metrics():
     current_humidity.labels("study").set(metrics["hum"])
     sensor_status.labels("study").set(metrics["stat"])
     # data validation
+    co2_validation_s1.labels("study").set(metrics["co2Valid"])
     temperature_validation_s1.labels("study").set(metrics["tmpValid"])
     humidity_validation_s1.labels("study").set(metrics["humValid"])
     return Response(generate_latest(), mimetype=content_type)
